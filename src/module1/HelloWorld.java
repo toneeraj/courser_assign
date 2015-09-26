@@ -6,6 +6,7 @@ import de.fhpotsdam.unfolding.geo.Location;
 import de.fhpotsdam.unfolding.providers.AbstractMapProvider;
 import de.fhpotsdam.unfolding.providers.Google;
 import de.fhpotsdam.unfolding.providers.MBTilesMapProvider;
+import de.fhpotsdam.unfolding.providers.Microsoft;
 import de.fhpotsdam.unfolding.utils.MapUtils;
 
 /** HelloWorld
@@ -43,13 +44,17 @@ public class HelloWorld extends PApplet
 
 		// This sets the background color for the Applet.  
 		// Play around with these numbers and see what happens!
-		this.background(200, 200, 200);
+		//this.background(200, 200, 200);
+		this.background(255, 204, 0);
 		
 		// Select a map provider
 		AbstractMapProvider provider = new Google.GoogleTerrainProvider();
 		
 		
 		//select microsoft map provider for map2 (created for assignment)
+		AbstractMapProvider providerMicrosoft = new Microsoft.HybridProvider();
+		
+		
 		// Set a zoom level
 		int zoomLevel = 10;
 		
@@ -79,7 +84,7 @@ public class HelloWorld extends PApplet
 		
 		// TODO: Add code here that creates map2 
 		// Then you'll modify draw() below
-		map2 = new UnfoldingMap(this, 410, 60, 350, 500, provider);
+		map2 = new UnfoldingMap(this, 410, 60, 350, 500, providerMicrosoft);
 		map2.zoomAndPanTo(zoomLevel, new Location(40.54890f, -74.33595f));
 		MapUtils.createDefaultEventDispatcher(this, map2);
 
